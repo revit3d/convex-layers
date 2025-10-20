@@ -462,8 +462,8 @@ class HullTree:
         ys = [pt.y for pt in points]
         self.x_min = min(xs)
         self.y_min = min(ys)
-        self.x_scale = max(xs) - self.x_min
-        self.y_scale = max(ys) - self.y_min
+        self.x_scale = (max(xs) - self.x_min) / 10000
+        self.y_scale = (max(ys) - self.y_min) / 10000
 
         return [
             Point(

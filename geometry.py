@@ -8,7 +8,7 @@ from dataclasses import dataclass
 class Point:
     x: float
     y: float
-    eps = 1e-12
+    eps = 1e-9
 
     def __eq__(self, other):
         # return self.x == other.x and self.y == other.y
@@ -45,7 +45,7 @@ def cross(o: Point, a: Point, b: Point) -> float:
     return (a.x - o.x) * (b.y - o.y) - (a.y - o.y) * (b.x - o.x)
 
 
-def slope(a: Point, b: Point, tol: float = 1e-12) -> float:
+def slope(a: Point, b: Point, tol: float = 1e-7) -> float:
     """
     Calculates slope of a line defined by points a and b.
     Note that in this implementation, slope can be equal to -inf
@@ -56,7 +56,7 @@ def slope(a: Point, b: Point, tol: float = 1e-12) -> float:
     return (b.y - a.y) / (b.x - a.x)
 
 
-def collinear(p: Point, p0: Point | None, p1: Point | None, tol: float = 1e-10) -> bool:
+def collinear(p: Point, p0: Point | None, p1: Point | None, tol: float = 1e-3) -> bool:
     """
     Collinearity check for segments [p, p0] and [p, p1].
     """
